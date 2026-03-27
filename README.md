@@ -2,7 +2,7 @@
 
 Personal academic website for Andrew Keenlyside.
 
-**🔗 [andrewkeenlyside.github.io](https://andrewkeenlyside.github.io)**
+**🔗 [andrew-keenlyside.github.io](https://andrew-keenlyside.github.io)**
 
 PhD Researcher · UCL Hawkes Institute · LINC CONNECTS
 
