@@ -1,3 +1,8 @@
 .DS_Store
 node_modules/
 *.log
+
+# Design notes stay local: this repo is publicly served by GitHub Pages
+PRODUCT.md
+DESIGN.md
+.impeccable/
