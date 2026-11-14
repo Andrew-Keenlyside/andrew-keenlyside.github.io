@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRIDGE</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="BRIDGE: whole-brain structural connectivity in terabyte-scale synchrotron imaging of the human brain. Code, open tools and data.">
+<meta name="author" content="Andrew Keenlyside">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#e5e5e3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0d0d" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="BRIDGE">
+<meta property="og:description" content="Whole-brain structural connectivity in terabyte-scale synchrotron imaging. Code, open tools and data.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://andrew-keenlyside.github.io/bridge/">
+<link rel="canonical" href="https://andrew-keenlyside.github.io/bridge/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/SchibstedGrotesk-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/GeistMono-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="mark" href="../" aria-label="Andrew Keenlyside, home">A.K.</a>
+  <nav aria-label="Sections">
+    <ul>
+      <li><a href="#code">Code</a></li>
+      <li><a href="#tools">Open tools</a></li>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#papers">Papers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top" aria-labelledby="name">
+  <div class="hero-text">
+    <h1 id="name">BRIDGE</h1>
+    <p class="expand">Brain Reconstruction Integrating Distributed Graph&nbsp;Estimates</p>
+    <p class="lede">Whole-brain structural connectivity in terabyte-scale synchrotron imaging of the human brain.</p>
+    <p class="where">Developed at UCL in the X-ray Microscopy Group of the NIH BRAIN CONNECTS Center for Large-scale Imaging of Neural Circuits (LINC). The code is private until publication; the format and viewers it writes to are open now.</p>
+    <p class="actions">
+      <a class="act act-primary" href="https://github.com/BRIDGE-Neuroscience">BRIDGE on GitHub<svg aria-hidden="true" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
+      <a class="act" href="#tools">Open tools<svg aria-hidden="true" viewBox="0 0 12 12"><path d="M6 2v8M2.5 6.5 6 10l3.5-3.5"/></svg></a>
+    </p>
+  </div>
+
+  <figure class="field" id="field" data-src="../assets/ascii/bridge.json" data-start="24">
+    <pre class="ascii" id="hero-ascii" aria-hidden="true"><!--ascii:bridge-->
+
+
+
+
+
+
+                                                     :        :;;:
+                                     ::     :::::,.:;--:     :;;;,
+                                 :;;-=+-;  ,-**==;,=+**=;,  :--;,    .,,,         ,:::
+                               :-+*xOO%O*-, :+O%x**xO%Ox+-.:=++=:   ,;==-:      :-=+*=;,
+                              ,;+O#%xox#%*-, ;+O#%%##Oxo=;.:=oOO*=;-+*oxo+-.  ,;=*x%O+;,
+                               ;+%#x=;-o%x+-,.-*###%o+=--:  .:=o%%O%%#%x*=:,,.:=+o%@O*+=-:
+                         ,:--:.;+xo+-::=Ox+-,,=*##@%+=::,. ,;+ox%####%O+-::;;:;=+x#@@##Oo=;,
+                       :;-+xO*--=+=-;,,-xO+-,:=O##@#x+-,,. .:;--=*%@@@#+;,;--;;=x%#@@@#O*=-;:-=-:,
+                     ,;-+oO%%#%Oo*+=-;:=OO+;:-x@@@@@@%o+=:.,;;::,:-x@@@#+;-+xo*xO###%x+===+*x%O*-:
+                    ,;=*O%%###@@@@##%Oxxxxx+=o@#@#%x+-;::,.,-*+=-=*OOOO%%**%@%xoxO%#%%%%#@@@#Oo+;,
+                    :-+x%#@@#%%@##%%OooooxOOOoxxOxo;,.......,:*OOxxo*oo**ooxxO%OxxxO%######x**+-,.,:
+                    ,;=+o%#@@##%Oxxxo*oxOxo*++**+o*-;;=+=,. .,;Oxxoo**o*++=++*oO%%OxO%%%#%*+++=:.,-+-:
+                 :-;.,;=+*oO%%%%%OxxxOxxo*oo*+*ooooO%#Ox*,...;xx%xxxxxo**oo*+++*oO%OxxOxo*+++=-,.:+xx-,
+                ,;*o-:.,;-==+*%%OxxO%Oo**oxx*xxxxOO%#%*=;, ..:-+%%%%%OxOxxxx*+==+*oO%#O-;---;:,:;=x%o-:
+                :=oOOxo+;,,,;=*xxxO%x*+*oxOOoo+=- +oxO%%%OooO%#%%Oo*=--+xxOxo++++**xO#@x-,...:=o%##o=;:
+                :=o%Oo*+;,  ,=xOx%%O****oxOOxo-:      +*****ooo*     ,:=O%%xo**oxxx%#@@@#O*-;:;=o%#Oo*-:
+               :-*O%o=::,;-*x%%%#@@#Oo*oox%##O;,.                    ,:=O%#%xxxOOOOO%#@@@%%#%x*=--+o%O=:
+                ;+%#ooxO%###%xooooooxxoooO%%+==:,.                  .:-oxx%OO%Oxo++++ox#@#OO%###OxooO%o-:
+                -*%####%Oo=;;-=+++-::-+oxO*oo%%x-:,                ;-+oO%xoxx%Oo-:,...,;*Ox++*oO%##@@%x=:
+               :-*O%%x*=;:::;;:;:,...,=o=;-%#%#%o*+==:           :;--+oxxxx---+x=,.     :=**++=--+x%%Ox=:
+               -+xxo*+-:.....   ..,,.,**-;;=%%%Oo*=-;;:         ,,,:--*xOxx;-;=+o=:....  ,:::;-;:::;;--;:
+               ;;;;::,     ..  ,:::,:*o-=-:;+*OOx*=;::,:       ...,:;=oxx*=+;;-=*o=::::,,.  ...    .,,,,
+               :-----=+*+=;,  .;=+==*o=--=-==+x%xx+-;;,;.     .,.,:-=+xOo====;-==o****=:,  ,-++;,.:=*o*=:
+              :=*xO%%%%%%x*;  .;*ox*=+--:=++o**O%Oo+=-;:.     ,;:;-=+xO%*++*+=-==*=*=:,.   .:+O%o*oO%#%O;:
+              ;+*xOOO#@O=::   .:-;=+=+--;+*ooox%##%o*+-,      :;-=*oO%##xo*o**==-+=++;:..  .;*O@@#%xxOO*=:
+              -=++=-*oO#%+,     .;:*-o-;-++oo*xO##@#xo*-,    ,;=***%###%x*+o++==+xox+::,.;.:o#%Oo*+;:;;::
+              ;----:,,:-*O*,     ;-ox%+-===-;-*x%##%Ox*-;::  ::=+o%@%Oxxo+;-=++=*%#O+;.  ,-O#x+-:,..,::::,
+                  ,,,,,,:+#x-,,,;o%#%*=*+;::::,:;;O%Oo+: :,    ;*x##o,.,,:;;;;;++x#@#xo**o#%*-,   .:-=*+-:
+                ,,::;=+ox%%#%Oxx%@@@%%*;,, -:  :,.;oOOo=       =x%x+,,:;;::  -:::+O#@@@@###%+--=+**xxOx=;:
+               :;+*oOOxxxx%%##@#####o=-;-;:;  ;:,   +**-       =oo+  ,:::;=+;;:;:-  *#@#%%%####%Oxo+--=-:,
+               :;+*+=-;:=o#%####%Oo:+==;-:;;=-;,,               +   ;:;;;;==;;;;-=*  o%OO%%#%*=-;::   ::
+               ,:;**===+o%%%##%Ooxx;;;**=;:;-==-;;                   ;-+***+++**xo: *x=;=*x##Oo*+=-;:
+                 ,:=++**+=+%@O+;,-*O*+=oxxooxOx=;:                     -+xOOO%%OxooxO+; :-+*%%%%Oxo+-:
+                  ,,,,,,;=O@O+; .;=x%Oo++o%##%*=;                       ;-+oxx*;;;+xOo=-:,-*Ox+-;:::,
+                    ,:-+x%%%*=, .:-+OOo=:,:-+++;                          ;==- .,;=+*xo+-:-+o=-:,.
+                  ,:;+oxx*+oo=;,.,;=*oo*+-:,                                     ,,::;-=-::;;;:,,
+                   ;;-=+=;;;--;, .:;--;;;;;:                                      .,,,,,,
+                     :::::::,,      .,,::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--/ascii:bridge--></pre>
+    <figcaption class="readout">
+      <span class="ro-label">Whole human brain, donor S-21-46, coronal slices from front to back. HiP-CT, ESRF BM18, 19.57&nbsp;µm voxels, shown at 313&nbsp;µm.</span>
+      <span class="ro-controls">
+        <label class="slice" for="slice">slice <output id="slice-out">25</output>/<span id="slice-of">48</span>
+          <input id="slice" type="range" min="0" max="47" value="24" step="1" aria-label="Brain slice, front to back">
+        </label>
+        <button class="pause" id="pause" type="button" aria-pressed="false">pause</button>
+      </span>
+      <span class="ro-credit">Human Organ Atlas, <a href="https://doi.org/10.15151/ESRF-DC-2222698126">doi:10.15151/ESRF-DC-2222698126</a>, CC&nbsp;BY&nbsp;4.0</span>
+    </figcaption>
+  </figure>
+</section>
+
+<section id="code" aria-labelledby="code-h">
+  <div class="sec-head">
+    <h2 id="code-h">Code</h2>
+    <p>BRIDGE and its simulation package stay private until the first paper is out. Both will be released through the project’s GitHub organisation.</p>
+  </div>
+  <dl class="grid rows">
+    <div><dt>Framework</dt><dd><b>BRIDGE</b><span>Private until publication</span></dd></div>
+    <div><dt>Simulation</dt><dd><b>BRIDGE-simulation</b><span>Private until publication</span></dd></div>
+    <div><dt>GitHub</dt><dd><a href="https://github.com/BRIDGE-Neuroscience"><b>BRIDGE-Neuroscience</b></a><span>The project’s organisation, where releases will appear</span></dd></div>
+  </dl>
+</section>
+
+<section id="tools" aria-labelledby="tools-h">
+  <div class="sec-head">
+    <h2 id="tools-h">Open tools</h2>
+    <p>BRIDGE stores its results as Zarr Vectors, so they can be read and viewed with these tools without BRIDGE.</p>
+  </div>
+  <dl class="grid rows tight two">
+    <div><dt>Spec</dt><dd><a href="https://alleninstitute.github.io/zarr_vectors/"><b>Zarr Vectors</b></a><span>Chunked, multiscale storage for points, streamlines and graphs</span></dd></div>
+    <div><dt>Python</dt><dd><a href="https://github.com/AllenInstitute/zarr-vectors-py"><b>zarr-vectors-py</b></a><span>Read, write and query stores. With the Allen Institute</span></dd></div>
+    <div><dt>Python</dt><dd><a href="https://github.com/AllenInstitute/zarr-vectors-tools"><b>zarr-vectors-tools</b></a><span>Format conversion and the zvtools command line</span></dd></div>
+    <div><dt>Viewer</dt><dd><a href="https://github.com/Andrew-Keenlyside/neuroglancer/tree/zarr_vectors_roi_store"><b>Neuroglancer + Zarr Vectors</b></a><span>Stores shown beside the image volumes they came from</span></dd></div>
+    <div><dt>Python</dt><dd><a href="https://github.com/Andrew-Keenlyside/zv-ngtools"><b>zv-ngtools</b></a><span>Python tooling for the Neuroglancer fork</span></dd></div>
+    <div><dt>Spec</dt><dd><a href="https://github.com/Andrew-Keenlyside/zarr-octree"><b>zarr-octree</b></a><span>A Zarr octree sharding codec</span></dd></div>
+    <div><dt>GPU</dt><dd><a href="https://github.com/Andrew-Keenlyside/zvCFD"><b>zvCFD</b></a><span>Fluid dynamics on Zarr Vectors storage</span></dd></div>
+    <div><dt>GPU</dt><dd><a href="https://github.com/Andrew-Keenlyside/zvDVC"><b>zvDVC</b></a><span>Digital volume correlation on Zarr Vectors storage</span></dd></div>
+  </dl>
+</section>
+
+<section id="data" aria-labelledby="data-h">
+  <div class="sec-head">
+    <h2 id="data-h">Data</h2>
+  </div>
+  <dl class="grid rows tight two">
+    <div><dt>HiP-CT</dt><dd><a href="https://doi.org/10.15151/ESRF-DC-2222698126"><b>Whole brain, donor S-21-46</b></a><span>Human Organ Atlas, ESRF BM18. The brain shown above</span></dd></div>
+    <div><dt>Atlas</dt><dd><a href="https://human-organ-atlas.esrf.fr"><b>Human Organ Atlas</b></a><span>Public HiP-CT of whole human organs</span></dd></div>
+    <div><dt>Template</dt><dd><a href="https://github.com/Andrew-Keenlyside/Synchrotron_Reference_Brain"><b>Synchrotron Reference Brain</b></a><span>Cohort-averaged template, SRB2026a</span></dd></div>
+    <div><dt>Dataset</dt><dd><a href="https://doi.org/10.64898/2026.01.27.702076"><b>The Extremely Brilliant Brain</b></a><span>Isotropic microscale human brain dataset</span></dd></div>
+  </dl>
+</section>
+
+<section id="papers" aria-labelledby="papers-h">
+  <div class="sec-head">
+    <h2 id="papers-h">Related papers</h2>
+    <p>Preprints from the same imaging programme. <u>Underlined</u>: Andrew Keenlyside.</p>
+  </div>
+  <ol class="grid rows tight pubs" reversed>
+    <li><span class="y">2026</span><div><b>Hierarchical X-ray microscopy and mesoscopic diffusion MRI in the same brain reveal the human connectome across scales</b><span>Chorrout <i>et al.</i> incl. <u>Keenlyside</u>. <i>bioRxiv</i></span></div></li>
+    <li><span class="y">2026</span><div><b>Towards validating diffusion-weighted MRI using Hierarchical Phase-Contrast Tomography as a ground-truth reference</b><span>Wanjau <i>et al.</i> incl. <u>Keenlyside</u>. <i>bioRxiv</i></span></div></li>
+    <li><span class="y">2026</span><div><b><a href="https://doi.org/10.64898/2026.01.27.702076">The Extremely Brilliant Brain: an isotropic microscale human brain dataset</a></b><span>Chorrout <i>et al.</i> incl. <u>Keenlyside</u>. <i>bioRxiv</i></span></div></li>
+  </ol>
+</section>
+
+<section id="contact" aria-labelledby="contact-h">
+  <div class="sec-head">
+    <h2 id="contact-h">Contact</h2>
+  </div>
+  <p class="mail"><a href="mailto:andrew.keenlyside.23@ucl.ac.uk">andrew.keenlyside.23@ucl.ac.uk</a></p>
+  <p class="links"><a href="../">Andrew Keenlyside</a><a href="https://orcid.org/0000-0002-6059-2103">ORCID</a><a href="https://github.com/Andrew-Keenlyside">GitHub</a></p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p>The brain is public HiP-CT data from the <a href="https://human-organ-atlas.esrf.fr">Human Organ Atlas</a> (Human Organ Atlas Collaboration; ESRF beamline BM18), donor S-21-46, <a href="https://doi.org/10.15151/ESRF-DC-2222698126">doi:10.15151/ESRF-DC-2222698126</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC&nbsp;BY&nbsp;4.0</a>. Downsampled and rendered as text.</p>
+</footer>
+
+<script src="../js/site.js" defer></script>
+</body>
+</html>

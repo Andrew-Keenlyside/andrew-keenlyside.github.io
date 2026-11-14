@@ -101,7 +101,8 @@
     const n = hero["120"].length;
     slider.max = String(n - 1);
     of.textContent = String(n);
-    pos = Math.round(n * 0.3);
+    const start = Number(field.dataset.start);
+    pos = Number.isFinite(start) && field.dataset.start ? Math.min(n - 1, start) : Math.round(n * 0.3);
     setPaused(paused);
     chooseHeroSet();
 
